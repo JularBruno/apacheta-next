@@ -1,8 +1,8 @@
 import { Button } from "@/app/ui/buttons";
 import { FormInput } from "@/app/ui/inputs";
-import { Navigate } from "@/app/lib/actions";
+import { NavigateDashboard } from "@/app/lib/actions";
 
-export default  function Form() {
+export default function Form() {
 
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -12,7 +12,7 @@ export default  function Form() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action={Navigate}> 
+            <form className="space-y-6" action={NavigateDashboard}> 
             {/* <form className="space-y-6" action={async (formData) => await Navigate("home")}>  */}
                 {/*  */}
                 {/* aria-describedby="form-error" this for form error and this same should be in input */}

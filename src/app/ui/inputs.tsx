@@ -7,10 +7,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     placeholder: string;
     // children: React.ReactNode;
   }
-  
-  
+
 export function FormInput({ label, name, type, placeholder
-    // , children 
+    // , children // choldren could be icons, will implement them later
 }: InputProps) {
     return (
         <div>

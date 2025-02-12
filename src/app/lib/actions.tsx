@@ -2,6 +2,10 @@
 
 import { redirect } from 'next/navigation';
 
-export async function Navigate(formData: FormData){ 
-    redirect(`/home`);
+export async function NavigateDashboard(){ 
+    redirect(`/dashboard`);
+};
+
+export async function NavigateHome(){ 
+    redirect("/");
 };
