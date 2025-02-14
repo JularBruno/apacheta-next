@@ -20,7 +20,7 @@ export default function SideNav() {
         {/* links map <NavLinks /> */}
         <NavLinks />
 
-        <div className="hidden h-auto w-full grow rounded-md  md:block"></div>
+        <div className="hidden h-auto w-full grow rounded-md md:block"></div>
             <form action={NavigateHome}>
                 <Button type="submit">
                     Cerrar sesión

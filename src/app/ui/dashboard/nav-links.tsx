@@ -7,19 +7,21 @@
 // } from '@heroicons/react/24/outline';
 
 import { ButtonLink } from '@/app/ui/buttons';
-import { usePathname } from 'next/navigation';
-import { clsx } from 'clsx';
+// import { usePathname } from 'next/navigation';
+// import { clsx } from 'clsx';
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
 //   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Nueva categoría', href: '/dashboard/categories/create' },
+  { name: 'Nuevo gasto', href: '/dashboard/tags/create' },
   { name: 'Historial', href: '/dashboard/history' },
 ];
 
 export default function NavLinks() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   
   return (
     <>

@@ -1,59 +1,92 @@
 "use client";
 
 import Card from '@/app/ui/card';
-import Collapsible from '@/app/ui/collapsible';
-
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+// import Collapsible from '@/app/ui/collapsible';
+import { Button, ButtonLink } from '@/app/ui/buttons';
+import { FormInput } from '@/app/ui/inputs';
 
 export default function Page() {
-    
-    const data = {
-        datasets: [
-        {
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-        },
-        ],
-    };
+    // const categories = ['cat1', 'cat2', 'cat3', 'cat4'];
+    // const spends = ['Spend1', 'Spend2', 'Spend3', 'Spend4'];
+
+    const categories = ['cat1', 'cat2', 'cat3', 'cat4'];
+    const spends = ['Spend1', 'Spend2', 'Spend3', 'Spend4'];
 
     return (
-        <div>
+        <div className=''>
             <header>
                 <Card>
-                    <h1 className='text-black'>
-                        Balance: 2000
-                    </h1>
+                    <div className='grid gap-6 grid-cols-1 md:grid-cols-2 bg-white items-center' >
+
+                        <h1 className='text-black'>
+                            Balance Febrero: $2000
+                        </h1>
+
+                        <div className=''>
+                            <ButtonLink href='/dashboard/income'>
+                                Nuevo ingreso
+                            </ButtonLink>
+                        </div>
+                    </div>
+
                 </Card>
             </header>
         
-            <main className='bg-white shadow-sm rounded-lg mt-4'>
+            <main className='bg-white shadow-sm rounded-lg mt-4 h-full'>
+
                 {/* attempted to do a few breakponints with no luck, also dont mess witht he doughnut div, keep things separated */}
-                <div className='h-60 p-4 w-full flex justify-center align-middle text-center items-center'>
-                    <Doughnut data={data} />
-                </div>
+                {/* <div className='h-60 p-4 w-full flex justify-center align-middle text-center items-center'>
+                    <Doughnut data={data} />  fucxk the doughnut will do it later
+
+                </div> */}
+
                 <div>
-                    <Collapsible title="asd">
+                    {/* <Collapsible title="asd">
                         <h3>asd</h3>
-                    </Collapsible>
+                    </Collapsible> */}
+                    <div className='p-4'>
+                        {categories.map((category) =>
+                            // don't forget about the key
+                            <table className='w-full text-black' key={category}>
+                                <thead>
+                                    <tr className='border border-gray-300 text-left '>
+                                        <th className='p-1'>{category}</th>
+                                        <th></th>
+                                        <th className='hidden xl:table-cell'>Total gastado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {spends.map((spend) =>
+                                        <tr key={spend}>
+                                            <td className='text-left p-1'>{spend}</td>
+                                            <td className='text-left p-1 '>
+                                                {/* justify-between */}
+                                                <form className='flex justify-center gap-4' action={(() => console.log('asd')
+                                                )}>
+                                                    <FormInput 
+                                                        label=''
+                                                        name='spend'
+                                                        type='number'
+                                                        placeholder='$0'
+                                                        className='h-8'
+                                                    >
+
+                                                    </FormInput>
+                                                    <Button className='xl:w-1 w-1 h-8'>
+                                                        +
+                                                    </Button>
+                                                </form>
+                                            </td>
+                                            <td className='text-center hidden xl:table-cell'>
+                                                $400
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        )}
+
+                    </div>
                 </div>
 
             </main>
