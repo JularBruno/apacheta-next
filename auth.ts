@@ -32,6 +32,7 @@ export const { auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
+        
         try {
           // Validate the credentials
           const parsedCredentials = z
@@ -83,7 +84,7 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  // Add this if you need to access the token in your application
+  // access the token in your application
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

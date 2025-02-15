@@ -4,10 +4,31 @@ import Card from '@/app/ui/card';
 // import Collapsible from '@/app/ui/collapsible';
 import { Button, ButtonLink } from '@/app/ui/buttons';
 import { FormInput } from '@/app/ui/inputs';
+import { getCategoriesByUser } from '@/app/lib/actions';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
-    // const categories = ['cat1', 'cat2', 'cat3', 'cat4'];
-    // const spends = ['Spend1', 'Spend2', 'Spend3', 'Spend4'];
+
+    const [cats, setCats] = useState(null);
+    // const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      async function fetchCategories() {
+        const data = await getCategoriesByUser();
+        setCats(data);
+        // setLoading(false);
+      }
+  
+      fetchCategories();
+      
+      console.log(cats);
+      
+    }, []);
+
+
+    // const cats = getCategoriesByUser;
+    // console.log('cats ', cats);
+    
 
     const categories = ['cat1', 'cat2', 'cat3', 'cat4'];
     const spends = ['Spend1', 'Spend2', 'Spend3', 'Spend4'];
