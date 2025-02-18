@@ -15,6 +15,8 @@ export default function Page() {
     useEffect(() => {
       async function fetchCategories() {
         const data = await getCategoriesByUser();
+        console.log('data ', data);
+        
         setCats(data);
         // setLoading(false);
       }

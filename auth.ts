@@ -68,6 +68,9 @@ export const { auth, signIn, signOut } = NextAuth({
 
           const data = await response.json();
 
+          console.log('data.user ', data.user);
+          
+
           // Return a user object that NextAuth can use
           // Adjust the fields based on your API response
           return {
@@ -75,8 +78,9 @@ export const { auth, signIn, signOut } = NextAuth({
             email: data.user.email,
             name: data.user.name, // If available
             // Store the token if you need it for other API calls
-            accessToken: data.token, // If your API returns a token
+            accessToken: data.accessToken, // If your API returns a token
           };
+          
         } catch (error) {
           console.error('Login error:', error);
           return null;

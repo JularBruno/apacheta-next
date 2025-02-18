@@ -38,8 +38,16 @@ export async function authenticate(
 export async function getCategoriesByUser() {
     const session = await auth();
 
+    console.log('session ', session?.user.id);
+    console.log('session ', session?.accessToken);
+
+
+
     if (!session?.user?.id || !session?.accessToken) {
+      console.log('error Unauthorized');
+      
       return { error: "Unauthorized" };
+
     }
 
     try {
