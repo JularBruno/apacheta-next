@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import { Button } from '@/app/ui/buttons';
-import { NavigateHome } from '@/app/lib/actions';
-import { signOut } from '../../../../auth'; 
+import { signOut } from '../../../auth'; 
 
 export default function SideNav() {
   return (

@@ -1,6 +1,6 @@
 // This file contains type definitions for  data.
 
-export type User = {
+export interface User {
     id: string;
     // name: string;
     email: string;
@@ -8,4 +8,21 @@ export type User = {
     // role: string;
     // balance: string;
 };
+  
+export interface Category {
+    createdAt: string;
+    id: string;
+    name: string;
+    updatedAt: string;
+    userId: string;
+  };
+  
+export interface Tags {
+    createdAt: string;
+    id: string;
+    categoryId: string;
+    name: string;
+    updatedAt: string;
+    userId: string;
+  };
   

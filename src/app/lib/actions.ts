@@ -1,11 +1,11 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { auth, signIn } from '../../../auth'; // check this declaration hilarious
+import { auth, signIn } from '../../auth'; // check this declaration hilarious
 import { AuthError } from 'next-auth';
+import { Category } from './definitions';
 
-
-let url = 'https://neptuno-production.up.railway.app/v1';
+const url = 'https://neptuno-production.up.railway.app/v1';
 
 export async function NavigateDashboard(){ 
     redirect(`/dashboard`);
@@ -35,19 +35,12 @@ export async function authenticate(
   }
 
 
-export async function getCategoriesByUser() {
+export async function getCategoriesByUser(): Promise<Array<Category>> {
     const session = await auth();
 
-    console.log('session ', session?.user.id);
-    console.log('session ', session?.accessToken);
-
-
-
     if (!session?.user?.id || !session?.accessToken) {
-      console.log('error Unauthorized');
-      
-      return { error: "Unauthorized" };
-
+      // return { error: "Unauthorized" };
+      throw new Error("Unauthorized");
     }
 
     try {
@@ -58,14 +51,13 @@ export async function getCategoriesByUser() {
             'Content-Type': 'application/json',
           }
         });
-        
 
-        return await response.json();
+        const categories = await response.json();
+        return categories;
     } catch (error) {
       if (error) {
-        return 'Not found.';
+        throw error;
       }
       throw error;
     }
   }
-

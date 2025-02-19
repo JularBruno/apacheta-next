@@ -76,7 +76,7 @@ export const { auth, signIn, signOut } = NextAuth({
           return {
             id: data.user.id, // Adjust based on your API response
             email: data.user.email,
-            name: data.user.name, // If available
+            // name: data.user.name, // If available
             // Store the token if you need it for other API calls
             accessToken: data.accessToken, // If your API returns a token
           };
@@ -92,12 +92,14 @@ export const { auth, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
+        token.id = user.id;
         token.accessToken = user.accessToken;
       }
       return token;
     },
     async session({ session, token }) {
       if (token) {
+        session.user.id = token.id as string;
         session.accessToken = token.accessToken;
       }
       return session;
