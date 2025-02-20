@@ -68,9 +68,6 @@ export const { auth, signIn, signOut } = NextAuth({
 
           const data = await response.json();
 
-          console.log('data.user ', data.user);
-          
-
           // Return a user object that NextAuth can use
           // Adjust the fields based on your API response
           return {

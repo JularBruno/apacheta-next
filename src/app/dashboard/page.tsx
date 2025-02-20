@@ -8,6 +8,8 @@ import { Suspense } from 'react';
 
 export default function Page() {
     
+    // const balance = await getUserBalance();
+    
     return (
         <div className=''>
             <header>
@@ -35,7 +37,7 @@ export default function Page() {
                     <Doughnut data={data} />  fucxk the doughnut will do it later
 
                 </div> */}
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div className='bg-white shadow-sm rounded-lg mt-4 h-full text-black'>Loading...</div>}>
 
                     <Categories/>
 

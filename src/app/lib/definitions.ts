@@ -10,19 +10,19 @@ export interface User {
 };
   
 export interface Category {
-    createdAt: string;
+    createdAt?: string;
     id: string;
     name: string;
-    updatedAt: string;
+    updatedAt?: string;
     userId: string;
   };
   
-export interface Tags {
-    createdAt: string;
-    id: string;
+export interface Tag {
+    createdAt?: string;
+    id?: string;
     categoryId: string;
     name: string;
-    updatedAt: string;
+    updatedAt?: string;
     userId: string;
   };
   
