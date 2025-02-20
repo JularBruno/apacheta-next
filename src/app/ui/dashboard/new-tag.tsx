@@ -2,7 +2,7 @@
 
 import { Button } from "@/app/ui/buttons";
 import { FormInput, FormSelect } from "@/app/ui/inputs";
-import { postTag, TagState } from '@/app/lib/actions';
+import { postTag, TagState } from '@/app/lib/actions/tags';
 import { Category } from '@/app/lib/definitions';
 import { useActionState } from "react";
 

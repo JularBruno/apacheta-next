@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import Link from "next/link";
-import { deleteCategory } from '@/app/lib/actions';
+import { deleteCategory } from '@/app/lib/actions/categories';
 import { useTransition } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

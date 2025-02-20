@@ -1,8 +1,9 @@
 // import Collapsible from '@/app/ui/collapsible';
 import { Button, DeleteCategory } from '@/app/ui/buttons';
 import { FormInput } from '@/app/ui/inputs';
-import Tags from '@/app/ui/tags';
-import { getCategoriesByUser, getTagsByUser } from '@/app/lib/actions';
+import Tags from '@/app/ui/dashboard/tags';
+import { getCategoriesByUser } from '@/app/lib/actions/categories';
+import { getTagsByUser } from '@/app/lib/actions/tags';
 import { Category, Tag } from '@/app/lib/definitions';
 import { redirect } from 'next/navigation';
 

@@ -3,7 +3,7 @@
 import Card from '@/app/ui/card';
 // import Collapsible from '@/app/ui/collapsible';
 import { ButtonLink } from '@/app/ui/buttons';
-import Categories from '@/app/ui/categories';
+import Categories from '@/app/ui/dashboard/categories';
 import { Suspense } from 'react';
 
 export default function Page() {

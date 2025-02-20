@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 export const authConfig = {
   pages: {
     signIn: '/login',
+    newUser: '/register',
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
