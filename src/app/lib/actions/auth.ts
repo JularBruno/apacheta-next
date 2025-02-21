@@ -2,13 +2,11 @@
 
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-
-import { auth, signIn } from '@/auth'; 
+import { signIn } from '@/auth'; 
 import { AuthError } from 'next-auth';
-import { Category, Tag } from '@/app/lib/definitions';
-import type { Session } from 'next-auth';
+import { Category } from '@/app/lib/definitions';
 import { z } from 'zod';
-import { getSession, getMethod, postMethod, deleteMethod } from "./utils";
+import { postMethod } from "./utils";
 
 // Authenticate for throwing in form and reaching sign-in in auth
 export async function authenticate(
@@ -50,8 +48,8 @@ export type UserState = {
 };
   
 export async function register(prevState: UserState, formData: FormData) {
-    const session = await getSession();
-    let url = 'user/register';
+    // const session = await getSession();
+    const url = 'user/register';
 
     const validatedData = PostUser.safeParse({
         email: formData.get('email'),

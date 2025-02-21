@@ -2,13 +2,11 @@
 
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-
-import { auth, signIn } from '@/auth'; 
+import { signIn } from '@/auth'; 
 import { AuthError } from 'next-auth';
-import { Category, Tag } from '@/app/lib/definitions';
-import type { Session } from 'next-auth';
+import { Category } from '@/app/lib/definitions';
 import { z } from 'zod';
-import { getSession, getMethod, postMethod, deleteMethod } from "./utils";
+import { postMethod } from "./utils";
 
 const PostUserFormSchema = z.object({
     email: z.string().email({ message: "Invalid email format" }),
@@ -32,7 +30,7 @@ export type UserState = {
 };
   
 export async function register(prevState: UserState, formData: FormData) {
-    let url = 'user/register';
+    const url = 'user/register';
 
     const validatedData = PostUserFormSchema.safeParse({
         email: formData.get('email'),

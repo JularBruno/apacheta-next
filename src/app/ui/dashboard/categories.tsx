@@ -1,6 +1,5 @@
 // import Collapsible from '@/app/ui/collapsible';
-import { Button, DeleteCategory } from '@/app/ui/buttons';
-import { FormInput } from '@/app/ui/inputs';
+import { DeleteCategory } from '@/app/ui/buttons';
 import Tags from '@/app/ui/dashboard/tags';
 import { getCategoriesByUser } from '@/app/lib/actions/categories';
 import { getTagsByUser } from '@/app/lib/actions/tags';
@@ -16,6 +15,7 @@ export default async function Categories(
         categories = await getCategoriesByUser();
         tags = await getTagsByUser();
     } catch (error) {
+        console.log(error);
         redirect('/login');
     }
 

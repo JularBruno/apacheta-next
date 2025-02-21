@@ -48,7 +48,8 @@ export function ButtonLink({ children, className, href}: LinkProps) {
   
 export function DeleteCategory({ id }: { id: string }) {
     // const deleteInvoiceWithId = deleteCategory.bind(null, id);
-    const [isPending, startTransition] = useTransition();
+    // const [isPending, startTransition] = useTransition();
+    const [, startTransition] = useTransition();
 
     const handleDelete = () => { // TODO this is badly made, obviusly because of the browser warning, but also this made "use client" and think is not really required
         if (window.confirm("Are you sure you want to delete this?")) {

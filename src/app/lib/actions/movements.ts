@@ -1,20 +1,15 @@
 'use server';
 
-import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-
-import { auth, signIn } from '@/auth'; 
-import { AuthError } from 'next-auth';
 import { Category, Tag } from '../definitions';
-import type { Session } from 'next-auth';
 import { z } from 'zod';
-import { getSession, getMethod, postMethod, deleteMethod } from "./utils";
+import { getSession, getMethod, postMethod } from "./utils";
 
 
 //// All Movement methods
 export async function getMovementsByFilter(): Promise<Array<Tag>> {
     const session = await getSession();
-    let url = 'movement/user'
+    const url = 'movement/user'
 
     return await getMethod<Array<Tag>>(url, await session?.user.id);
 }
@@ -47,7 +42,7 @@ export type MovementState = {
 
 export async function postMovement(prevState: MovementState, formData: FormData) {
     const session = await getSession();
-    let url = 'movement';
+    const url = 'movement';
 
     if (!session?.user.id) throw new Error('User ID is missing'); // not sure if required
 
@@ -85,13 +80,13 @@ export async function postMovement(prevState: MovementState, formData: FormData)
     };
 }
 
-export async function postIncomeMovement(prevState: MovementState, formData: FormData) {
-    // TODO do this instead of adding everything on form
-    // NOT REDIRECTING
-}
+// export async function postIncomeMovement(prevState: MovementState, formData: FormData) {
+//     // TODO do this instead of adding everything on form
+//     // NOT REDIRECTING
+// }
 
 
-export async function postTagMovement(prevState: MovementState, formData: FormData) {
-    // TODO do this instead of adding everything on form
-}
+// export async function postTagMovement(prevState: MovementState, formData: FormData) {
+//     // TODO do this instead of adding everything on form
+// }
 

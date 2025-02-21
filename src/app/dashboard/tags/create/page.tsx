@@ -1,7 +1,7 @@
 import Card from "@/app/ui/card";
 import Form from "@/app/ui/dashboard/new-tag";
 import { getCategoriesByUser } from '@/app/lib/actions/categories';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
 export default async function Page() {
 

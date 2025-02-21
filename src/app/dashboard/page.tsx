@@ -12,7 +12,7 @@ export default function Page() {
     
     return (
         <div className=''>
-            <header>
+            <div>
                 <Card>
                     <div className='grid gap-6 grid-cols-1 md:grid-cols-2 bg-white items-center' >
 
@@ -28,7 +28,7 @@ export default function Page() {
                     </div>
 
                 </Card>
-            </header>
+            </div>
         
             <main className='bg-white shadow-sm rounded-lg mt-4 h-full'>
 

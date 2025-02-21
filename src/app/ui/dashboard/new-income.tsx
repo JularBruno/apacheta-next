@@ -1,15 +1,15 @@
 "use client";
 
 import { Button } from "@/app/ui/buttons";
-import { FormInput, FormSelect } from "@/app/ui/inputs";
+import { FormInput } from "@/app/ui/inputs";
 import { postMovement, MovementState } from '@/app/lib/actions/movements';
-import { Category } from '@/app/lib/definitions';
 import { useActionState } from "react";
 
 export default function Form() {
       const initialState: MovementState = { message: null, errors: {} };
   
-      const [state, formAction] = useActionState(postMovement, initialState);
+      // const [state, formAction] = useActionState(postMovement, initialState);
+      const [, formAction] = useActionState(postMovement, initialState);
 
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

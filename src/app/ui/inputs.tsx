@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Category } from '../lib/definitions';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -13,7 +14,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
     label: string;
     name: string;
-    data: any;
+    data: Array<Category>;
 }
 
 export function FormInput({ label, name, type, placeholder, className
@@ -54,7 +55,7 @@ export function FormSelect({ label, name, data
                 <option value="" disabled>
                     Selecciona una {label}
                 </option>
-                {data?.map((value: any) => (
+                {data?.map((value: Category) => (
                     <option key={value.id} value={value.id}>
                         {value.name}
                     </option>

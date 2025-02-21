@@ -2,18 +2,14 @@
 
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-
-import { auth, signIn } from '@/auth'; 
-import { AuthError } from 'next-auth';
 import { Category, Tag } from '../definitions';
-import type { Session } from 'next-auth';
 import { z } from 'zod';
-import { getSession, getMethod, postMethod, deleteMethod } from "./utils";
+import { getSession, getMethod, postMethod } from "./utils";
 
 //// All Tag methods
 export async function getTagsByUser(): Promise<Array<Tag>> {
     const session = await getSession();
-    let url = 'tag/user'
+    const url = 'tag/user'
 
     return await getMethod<Array<Tag>>(url, await session?.user.id);
 }
@@ -38,7 +34,7 @@ export type TagState = {
   
 export async function postTag(prevState: TagState, formData: FormData) {
     const session = await getSession();
-    let url = 'tag';
+    const url = 'tag';
 
     if (!session?.user.id) throw new Error('User ID is missing'); // not sure if required
 

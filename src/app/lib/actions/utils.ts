@@ -1,13 +1,8 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
-
-import { auth, signIn } from '@/auth'; 
-import { AuthError } from 'next-auth';
-import { Category, Tag } from '@/app/lib/definitions';
+import { auth } from '@/auth'; 
 import type { Session } from 'next-auth';
-import { z } from 'zod';
 
 // Urls might need to be more better
 const urlDev = 'https://neptuno-production.up.railway.app/v1';
@@ -54,7 +49,7 @@ export async function getMethod<T>(url: string, id?: string | number): Promise<T
     }
 };
 
-export async function postMethod<T>(url: string, body?: Object): Promise<T> {
+export async function postMethod<T>(url: string, body?: object): Promise<T> {
     const session = await getSession();
 
     if (!session?.user?.id || !session?.accessToken) {

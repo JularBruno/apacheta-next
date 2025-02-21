@@ -4,7 +4,7 @@ import { Button } from "@/app/ui/buttons";
 import { FormInput } from "@/app/ui/inputs";
 import { postMovement, MovementState } from '@/app/lib/actions/movements';
 import { useActionState } from "react";
-import { Category, Tag } from '@/app/lib/definitions';
+import { Tag } from '@/app/lib/definitions';
 // import { useFormState } from "react-dom";
 
 export default function Tags(
@@ -12,7 +12,7 @@ export default function Tags(
 ) {
     const initialState: MovementState = { message: null, errors: {} };
 
-    const [state, formAction] = useActionState(postMovement, initialState);
+    const [, formAction] = useActionState(postMovement, initialState);
 
     return (
         <tr key={tag.id}>

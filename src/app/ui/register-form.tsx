@@ -3,7 +3,6 @@
 import { Button } from "@/app/ui/buttons";
 import { FormInput } from "@/app/ui/inputs";
 import { UserState, register } from '@/app/lib/actions/user';
-import { User } from '@/app/lib/definitions';
 import { useActionState } from "react";
 
 export default function Form() {

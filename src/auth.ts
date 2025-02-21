@@ -2,7 +2,8 @@ import NextAuth, { DefaultSession } from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
-import { JWT } from 'next-auth/jwt';
+// import { JWT } from 'next-auth/jwt';
+import 'next-auth/jwt';
 
 declare module 'next-auth' {
   interface Session extends DefaultSession {
