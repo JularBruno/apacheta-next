@@ -2,7 +2,8 @@ import NextAuth, { DefaultSession } from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
-import { JWT } from 'next-auth/jwt';
+// import { JWT } from 'next-auth/jwt';
+import 'next-auth/jwt';
 
 declare module 'next-auth' {
   interface Session extends DefaultSession {
@@ -32,6 +33,7 @@ export const { auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
+        
         try {
           // Validate the credentials
           const parsedCredentials = z
@@ -72,10 +74,11 @@ export const { auth, signIn, signOut } = NextAuth({
           return {
             id: data.user.id, // Adjust based on your API response
             email: data.user.email,
-            name: data.user.name, // If available
+            // name: data.user.name, // If available
             // Store the token if you need it for other API calls
-            accessToken: data.token, // If your API returns a token
+            accessToken: data.accessToken, // If your API returns a token
           };
+          
         } catch (error) {
           console.error('Login error:', error);
           return null;
@@ -83,16 +86,18 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  // Add this if you need to access the token in your application
+  // access the token in your application
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
+        token.id = user.id;
         token.accessToken = user.accessToken;
       }
       return token;
     },
     async session({ session, token }) {
       if (token) {
+        session.user.id = token.id as string;
         session.accessToken = token.accessToken;
       }
       return session;

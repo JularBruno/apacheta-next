@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import { Button } from '@/app/ui/buttons';
-import { NavigateHome } from '@/app/lib/actions';
+import { signOut } from '../../../auth'; 
 
 export default function SideNav() {
   return (
@@ -21,7 +21,10 @@ export default function SideNav() {
         <NavLinks />
 
         <div className="hidden h-auto w-full grow rounded-md md:block"></div>
-            <form action={NavigateHome}>
+            <form action={async () => {
+                'use server';
+                await signOut({ redirectTo: '/' });
+              }}>
                 <Button type="submit">
                     Cerrar sesión
                 </Button>

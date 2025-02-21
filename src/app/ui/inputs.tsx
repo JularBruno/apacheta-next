@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Category } from '../lib/definitions';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -13,6 +14,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
     label: string;
     name: string;
+    data: Array<Category>;
 }
 
 export function FormInput({ label, name, type, placeholder, className
@@ -35,8 +37,7 @@ export function FormInput({ label, name, type, placeholder, className
 }
 
 
-export function FormSelect({ label, name
-    // , children // choldren could be icons, will implement them later
+export function FormSelect({ label, name, data
 }: SelectProps) {
     return (
         <div className="mb-4">
@@ -44,7 +45,6 @@ export function FormSelect({ label, name
                 {label}
             </label>
             <div className="relative">
-
                 <select
                     name={name} 
                     id={name}
@@ -52,17 +52,14 @@ export function FormSelect({ label, name
                     defaultValue=""
                     // aria-describedby="customer-error"
                 >
-
-                    <option value="" disabled>
-                        Selecciona una {label}
+                <option value="" disabled>
+                    Selecciona una {label}
+                </option>
+                {data?.map((value: Category) => (
+                    <option key={value.id} value={value.id}>
+                        {value.name}
                     </option>
-
-                {/* {customers.map((customer) => (
-                    <option key={customer.id} value={customer.id}>
-                    {customer.name}
-                    </option>
-                ))} */}
-
+                ))}
             </select>
 
             {/* <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> */}

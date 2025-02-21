@@ -5,7 +5,7 @@ import { FormInput } from "@/app/ui/inputs";
 // import { NavigateDashboard } from "@/app/lib/actions";
 
 import { useActionState } from 'react';
-import { authenticate } from '@/app/lib/actions';
+import { authenticate } from '@/app/lib/actions/auth';
 import { useSearchParams } from 'next/navigation';
 
 
