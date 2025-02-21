@@ -29,7 +29,7 @@ const PostMovementFormSchema = z.object({
       .gt(0, { message: 'Please enter an amount greater than $0.' }),
     type: z.string(),
     description: z.string(),
-  })
+})
   
 const PostMovement = PostMovementFormSchema.omit({ userId: true });
 
@@ -76,10 +76,18 @@ export async function postMovement(prevState: MovementState, formData: FormData)
         console.log(error);
     }
     revalidatePath('/dashboard');
+
+    // NOT REDIRECTING
+    // ALWAYS RETURNING THIS SHIT EVEN WHEN ERROR
     return {
         errors: {},
         message: "Success"
     };
+}
+
+export async function postIncomeMovement(prevState: MovementState, formData: FormData) {
+    // TODO do this instead of adding everything on form
+    // NOT REDIRECTING
 }
 
 

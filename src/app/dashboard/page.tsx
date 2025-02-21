@@ -21,7 +21,7 @@ export default function Page() {
                         </h1>
 
                         <div className=''>
-                            <ButtonLink href='/dashboard/income'>
+                            <ButtonLink href='/dashboard/income/create'>
                                 Nuevo ingreso
                             </ButtonLink>
                         </div>

@@ -28,13 +28,13 @@ export default async function Categories(
                         <thead>
                             <tr className='border border-gray-300 text-left '>
                                 <th className='p-1'>{category.name}</th>
-                                
-                                <th className='hidden xl:table-cell'>Total gastado</th>
 
                                 <th className='flex justify-end text-right pr-4'>
                                     <DeleteCategory id={category.id}/> 
                                     {/* TODO this doesnt show loading when deletion */}
                                 </th>
+
+                                {/* <th className='hidden xl:table-cell'>Total gastado</th> */}
                             </tr>
                         </thead>
                         <tbody>

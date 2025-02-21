@@ -5,14 +5,14 @@ import { FormInput } from "@/app/ui/inputs";
 import { postMovement, MovementState } from '@/app/lib/actions/movements';
 import { useActionState } from "react";
 import { Category, Tag } from '@/app/lib/definitions';
-import { useFormState } from "react-dom";
+// import { useFormState } from "react-dom";
 
 export default function Tags(
     {tag, categoryId}: {tag: Tag, categoryId: string}
 ) {
     const initialState: MovementState = { message: null, errors: {} };
 
-    // const [state, formAction] = useFormState(postMovement, initialState);
+    const [state, formAction] = useActionState(postMovement, initialState);
 
     return (
         <tr key={tag.id}>
@@ -30,21 +30,21 @@ export default function Tags(
 
                     </FormInput>
                     <Button className='xl:w-1 w-1 h-8' 
-                        // formAction={async (formData: FormData) => {
-                        //     formData.append('categoryId', categoryId);
-                        //     formData.append('tagId', '' + tag.id); // todo why
-                        //     formData.append('type', 'expense');
-                        //     formData.append('description', 'tag');
-                        //     await formAction(formData);
-                        // }}
+                        formAction={async (formData: FormData) => {
+                            formData.append('categoryId', categoryId);
+                            formData.append('tagId', '' + tag.id); // todo why
+                            formData.append('type', 'expense');
+                            formData.append('description', 'tag');
+                            await formAction(formData);
+                        }}
                     >
                         -
                     </Button>
                 </form>
             </td>
-            <td className='text-center hidden xl:table-cell'>
+            {/* <td className='text-center hidden xl:table-cell'>
                 $400
-            </td>
+            </td> */}
         </tr>
   );
 };

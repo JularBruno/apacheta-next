@@ -45,8 +45,6 @@ export async function getMethod<T>(url: string, id?: string | number): Promise<T
         }
 
         const data = await response.json();
-        console.log('data ', data);
-        
         return data;
     } catch (error) {
       if (error) {
