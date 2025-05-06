@@ -14,9 +14,9 @@ export default function Page() {
         <div className=''>
             <div>
                 <Card>
-                    <div className='grid gap-6 grid-cols-1 md:grid-cols-2 bg-white items-center' >
+                    <div className='grid gap-6 grid-cols-1 md:grid-cols-2 items-center' >
 
-                        <h1 className='text-black'>
+                        <h1 className='font-bold'>
                             Balance Febrero: $2000
                         </h1>
 

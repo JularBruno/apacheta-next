@@ -13,7 +13,8 @@ interface LinkProps extends React.LinkHTMLAttributes<HTMLLinkElement> {
     children: React.ReactNode;
 }
 
-const buttonClass = 'font-semibold shadow-lg flex h-10 w-full justify-center items-center rounded-lg px-4 text-sm text-white bg-gradient-to-r from-zinc-900 from-0% to-stone-600 to-100%';
+// const buttonClass = 'font-semibold shadow-lg flex h-10 w-full justify-center items-center rounded-lg px-4 text-sm text-white bg-gradient-to-r from-zinc-900 from-0% to-stone-600 to-100%';
+const buttonClass = 'font-semibold shadow-lg flex h-10 w-full justify-center items-center rounded-lg px-4 text-sm text-white bg-gradient-to-r from-[#8D8BFF] from-0% to-[#585EE6] to-100%';
   
 export function Button({ children, className, ...rest }: ButtonProps) {
   return (

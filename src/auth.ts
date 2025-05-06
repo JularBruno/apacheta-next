@@ -33,13 +33,13 @@ export const { auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        
+
         try {
           // Validate the credentials
           const parsedCredentials = z
-            .object({ 
-              email: z.string().email(), 
-              password: z.string().min(6) 
+            .object({
+              email: z.string().email(),
+              password: z.string().min(6)
             })
             .safeParse(credentials);
 
@@ -51,7 +51,8 @@ export const { auth, signIn, signOut } = NextAuth({
           const { email, password } = parsedCredentials.data;
 
           // Make the API call to your login endpoint
-          const response = await fetch('https://neptuno-production.up.railway.app/v1/user/login', {
+          // const response = await fetch('https://neptuno-production.up.railway.app/v1/user/login', {
+          const response = await fetch('http://localhost:8080/v1/user/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ export const { auth, signIn, signOut } = NextAuth({
             // Store the token if you need it for other API calls
             accessToken: data.accessToken, // If your API returns a token
           };
-          
+
         } catch (error) {
           console.error('Login error:', error);
           return null;

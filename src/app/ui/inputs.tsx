@@ -22,7 +22,7 @@ export function FormInput({ label, name, type, placeholder, className
 }: InputProps) {
     return (
         <div>
-            <label htmlFor={name} className="block text-sm/6 font-medium text-gray-900">{label}</label>
+            <label htmlFor={name} className="block text-sm/6 font-bold text-[#D6E1EF]">{label}</label>
             <div className="">
                 <input type={type} name={name} id={name} placeholder={placeholder}
                 // autocomplete="email" required
@@ -41,7 +41,7 @@ export function FormSelect({ label, name, data
 }: SelectProps) {
     return (
         <div className="mb-4">
-            <label htmlFor={name} className="block text-sm/6 font-medium text-gray-900">
+            <label htmlFor={name} className="block text-sm/6 font-bold text-[#D6E1EF]">
                 {label}
             </label>
             <div className="relative">

@@ -21,7 +21,8 @@ export default function Form() {
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className=" text-center text-2xl/9 font-bold tracking-tight text-gray-900">Ingresa a tu cuenta!</h2> {/* esto tenía mt 10*/}
+            <h2 className=" text-center text-2xl/9 font-bold tracking-tight text-[#D6E1EF]">Ingresa a tu cuenta!</h2> {/* esto tenía mt 10*/}
+            <p className=" text-center  font-bold tracking-tight text-[#D6E1EF]">Ingresa a tu cuenta!</p> {/* esto tenía mt 10*/}
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

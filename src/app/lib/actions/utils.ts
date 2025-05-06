@@ -5,7 +5,8 @@ import { auth } from '@/auth';
 import type { Session } from 'next-auth';
 
 // Urls might need to be more better
-const urlDev = 'https://neptuno-production.up.railway.app/v1';
+// const urlDev = 'https://neptuno-production.up.railway.app/v1';
+const urlDev = 'http://localhost:8080/v1';
 
 // session is auth method way of reaching its callbacks (auth from auth.config.ts) has some ways of retrieving user logged
 export async function getSession(): Promise<Session | null> {
